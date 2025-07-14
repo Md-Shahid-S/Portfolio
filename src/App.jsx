@@ -2,7 +2,7 @@ import './App.css';
 import profile from './assets/profile.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 const certifications = [
   {
     title: 'Deep Learning (IIT Ropar, NPTEL)',
@@ -117,6 +117,7 @@ function scrollToSection(id) {
 }
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     AOS.init({
       duration: 900,
@@ -126,15 +127,29 @@ function App() {
     });
     AOS.refresh();
   }, []);
+  // Close menu on navigation
+  const handleNavClick = (id) => {
+    scrollToSection(id);
+    setMenuOpen(false);
+  };
   return (
     <div className="portfolio-root">
       <nav className="portfolio-nav" data-aos="fade-down">
-        <span className="portfolio-logo" onClick={() => scrollToSection('hero')}>MS</span>
-        <ul>
-          <li onClick={() => scrollToSection('hero')}>Home</li>
-          <li onClick={() => scrollToSection('projects')}>Projects</li>
-          <li onClick={() => scrollToSection('certifications')}>Certifications</li>
-          <li onClick={() => scrollToSection('contact')}>Contact</li>
+        <span className="portfolio-logo" onClick={() => handleNavClick('hero')}>MS</span>
+        <button
+          className="hamburger-menu"
+          aria-label="Open navigation menu"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span className={menuOpen ? 'hamburger-bar open' : 'hamburger-bar'}></span>
+          <span className={menuOpen ? 'hamburger-bar open' : 'hamburger-bar'}></span>
+          <span className={menuOpen ? 'hamburger-bar open' : 'hamburger-bar'}></span>
+        </button>
+        <ul className={menuOpen ? 'nav-links open' : 'nav-links'}>
+          <li onClick={() => handleNavClick('hero')}>Home</li>
+          <li onClick={() => handleNavClick('projects')}>Projects</li>
+          <li onClick={() => handleNavClick('certifications')}>Certifications</li>
+          <li onClick={() => handleNavClick('contact')}>Contact</li>
         </ul>
       </nav>
       <header className="portfolio-hero" id="hero" data-aos="fade-up">
