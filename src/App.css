@@ -1056,59 +1056,99 @@ html {
 
 /* Mobile */
 @media (max-width: 600px) {
+  html, body, #root {
+    width: 100vw;
+    min-width: 0;
+    overflow-x: hidden;
+  }
   .portfolio-root {
     padding: 0 0.2rem;
+    max-width: 100vw;
+    min-width: 0;
   }
   .portfolio-nav {
     flex-direction: column;
     align-items: flex-start;
     padding: 1rem 0.5rem 0.5rem 0.5rem;
     font-size: 1rem;
+    width: 100vw;
+    min-width: 0;
   }
   .portfolio-nav ul {
     gap: 1rem;
     flex-wrap: wrap;
+    width: 100vw;
+    min-width: 0;
   }
   .portfolio-logo {
     font-size: 1.3rem;
   }
-  .portfolio-hero {
-    padding: 2rem 0.5rem 1.2rem 0.5rem;
-    margin: 1.2rem 0;
-    max-width: 100vw;
-  }
-  .portfolio-certifications, .portfolio-internship, .portfolio-skills, .portfolio-projects {
+  .portfolio-hero,
+  .portfolio-certifications,
+  .portfolio-internship,
+  .portfolio-skills,
+  .portfolio-projects,
+  .portfolio-learning-now,
+  .portfolio-contact {
     padding: 1rem 0.2rem 0.5rem 0.2rem;
     margin: 1.2rem 0;
     max-width: 100vw;
+    min-width: 0;
+    border-radius: 12px;
   }
-  .cert-card, .project-card {
+  .cert-card, .project-card, .internship-card, .learning-now-item {
     min-width: 90vw;
     max-width: 98vw;
-    margin-bottom: 1rem;
     padding: 1rem 0.7rem;
+    font-size: 0.97rem;
+    border-radius: 12px;
   }
   .certification-list, .projects-list {
     display: flex;
     flex-direction: column;
     gap: 0.7rem;
+    max-width: 100vw;
+    min-width: 0;
   }
   .skills-list {
     flex-direction: column;
     align-items: stretch;
+    gap: 0.5rem;
   }
   .skills-list li {
     min-width: 80vw;
     margin: 0.3rem 0;
+    font-size: 0.97rem;
+    padding: 0.6rem 1rem;
   }
   .portfolio-footer {
     font-size: 0.9rem;
     padding: 1rem 0 0.5rem 0;
   }
-  .cert-card, .project-card, .internship-card {
-    min-width: 90vw;
-    max-width: 98vw;
-    padding: 1rem 0.7rem;
+  .learning-now-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.7rem;
+  }
+  .learning-now-title {
+    text-align: center;
+    font-size: 1rem;
+  }
+  .learning-now-desc {
+    text-align: center;
+    font-size: 0.95rem;
+  }
+  .learning-now-tech-stack {
+    justify-content: center;
+  }
+  .tech-pill {
+    font-size: 0.9rem;
+    padding: 0.2rem 0.7rem;
+  }
+  .project-badge, .learning-now-badge {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
   }
 }
 
