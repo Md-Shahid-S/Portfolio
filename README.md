@@ -102,7 +102,7 @@ The website is fully responsive and optimized for:
 
 ```bash
 # Clone the repository
-git clone https://github.com/Md-Shahid-S/portfolio.git
+git clone https://github.com/Md-Shahid-S/Portfolio.git
 
 # Navigate to the project directory
 cd portfolio
